@@ -2,6 +2,11 @@ function getComputerChoice(items){
     return items[Math.floor(Math.random()*items.length)];
 }
 
+function getPlayerChoice(){
+    let choose = prompt("What do you choose", "Rock, Paper, Scissors");
+    return choose.charAt(0).toUpperCase() + choose.slice(1);
+}
+
 function play(playerSelection, computerSelection){
     let p_score = 0;
     let c_score = 0;
@@ -26,12 +31,10 @@ function play(playerSelection, computerSelection){
     else {
         console.log("Something went wrong. Sorry.");
     }
-
 }
 
 const element = ["Rock", "Paper", "Scissors"];
-//console.log(getComputerChoice(element));
 
-let playerSelection = "Rock";
+let playerSelection = getPlayerChoice();
 let computerSelection = getComputerChoice(element);
 console.log(play(playerSelection, computerSelection));
