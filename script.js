@@ -8,9 +8,6 @@ function getPlayerChoice(){
 }
 
 function play(playerSelection, computerSelection){
-    let p_score = 0;
-    let c_score = 0;
-    
     if ((playerSelection == "Rock" && computerSelection == "Rock") 
     || (playerSelection == "Paper" && computerSelection == "Paper")
     || (playerSelection == "Scissors" && computerSelection == "Scissors")){
@@ -31,10 +28,34 @@ function play(playerSelection, computerSelection){
     else {
         console.log("Something went wrong. Sorry.");
     }
+
+    return [p_score, c_score]
+}
+
+function game(p_score, c_score) {
+    for (let i = 0; i < 5; i++){
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice(element);
+        console.log(play(playerSelection, computerSelection));
+    }
+
+    console.log(`Result after 5 games: Player = ${p_score} Computer = ${c_score}`);
+    if (p_score > c_score){
+        console.log("Player won!");
+    }
+    else if (c_score > p_score){
+        console.log("Computer won!");
+    }
+    else {
+        console.log("Tie!");
+    }
+
+    console.log("");
+    console.log("Thanks for playing.");
 }
 
 const element = ["Rock", "Paper", "Scissors"];
 
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice(element);
-console.log(play(playerSelection, computerSelection));
+let p_score = 0;
+let c_score = 0;
+game(p_score, c_score);
